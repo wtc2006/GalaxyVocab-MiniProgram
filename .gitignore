@@ -14,4 +14,6 @@ Thumbs.db
 # Data & Scripts (Optional, but recommended for lightweight repo)
 json/
 output/
-scripts/
+# scripts/ 文件夹已包含 README 和处理脚本，不再全局忽略
+# scripts/
+
