@@ -1,0 +1,53 @@
+﻿﻿﻿﻿<view class="container">
+  <view class="blob-container">
+    <view class="blob blob-purple"></view>
+    <view class="blob blob-blue"></view>
+  </view>
+
+  <view class="stats-header">
+    <text class="stats-title">DATA CENTER</text>
+    <text class="stats-subtitle">学习星图分析报告</text>
+  </view>
+
+  <view class="stats-grid">
+    <view class="stats-item glass">
+      <view class="stats-label">今日已学</view>
+      <view class="stats-value-box">
+        <text class="value">{{learnCount}}</text>
+        <text class="unit">WORDS</text>
+      </view>
+      <view class="stats-progress-bar">
+        <view class="progress" style="width: 60%"></view>
+      </view>
+    </view>
+
+    <view class="stats-item glass">
+      <view class="stats-label">待复习</view>
+      <view class="stats-value-box">
+        <text class="value highlight-purple">{{reviewCount}}</text>
+        <text class="unit">WORDS</text>
+      </view>
+      <view class="stats-progress-bar">
+        <view class="progress purple" style="width: 40%"></view>
+      </view>
+    </view>
+
+    <view class="stats-item glass">
+      <view class="stats-label">今日用时</view>
+      <view class="stats-value-box">
+        <text class="value">{{todayTime}}</text>
+        <text class="unit">MINS</text>
+      </view>
+      <view class="stats-hint">Focus Time</view>
+    </view>
+
+    <view class="stats-item glass">
+      <view class="stats-label">累计总用时</view>
+      <view class="stats-value-box">
+        <text class="value">{{totalTime}}</text>
+        <text class="unit">MINS</text>
+      </view>
+      <view class="stats-hint">Total Journey</view>
+    </view>
+  </view>
+</view>

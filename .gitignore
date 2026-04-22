@@ -1,0 +1,16 @@
+# Dependency directories
+node_modules/
+miniprogram_npm/
+
+# Private configuration
+project.private.config.json
+envConfig.js
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Data & Scripts (Optional, but recommended for lightweight repo)
+json/
+output/
+scripts/

@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/stats/stats"
+  ],
+  "subpackages": [
+    {
+      "root": "pkg",
+      "pages": [
+        "index/index"
+      ]
+    }
+  ],
+  "lazyCodeLoading": "requiredComponents",
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#00f2ff",
+    "backgroundColor": "#050505",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "pages/home/home.png",
+        "selectedIconPath": "pages/home/home_active.png"
+      },
+      {
+        "pagePath": "pages/stats/stats",
+        "text": "统计",
+        "iconPath": "pages/stats/stats.png",
+        "selectedIconPath": "pages/stats/stats_active.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundColor": "#050505",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#050505",
+    "navigationBarTitleText": "Galaxy Vocab",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "default"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

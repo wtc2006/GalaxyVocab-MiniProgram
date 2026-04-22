@@ -1,0 +1,39 @@
+﻿﻿﻿﻿<view class="container">
+  <view class="blob-container">
+    <view class="blob blob-purple"></view>
+    <view class="blob blob-blue"></view>
+  </view>
+
+  <view class="header-card glass">
+    <view class="date-section">
+      <text class="day">{{day}}</text>
+      <text class="month">{{month}}</text>
+    </view>
+    <view class="divider"></view>
+    <view class="checkin-section">
+      <view class="checkin-btn {{hasCheckedIn ? 'checked' : ''}}" bindtap="handleCheckIn">
+        <text>{{hasCheckedIn ? 'MISSION COMPLETE' : 'SYSTEM CHECK-IN'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="task-grid">
+    <view class="task-card learn glass" bindtap="startLearn">
+      <view class="task-icon">L</view>
+      <view class="task-content">
+        <text class="task-title">LEARN</text>
+        <text class="task-subtitle">今日新词进度</text>
+      </view>
+      <view class="task-badge">{{learnCount}}</view>
+    </view>
+
+    <view class="task-card review glass" bindtap="startReview">
+      <view class="task-icon">R</view>
+      <view class="task-content">
+        <text class="task-title">REVIEW</text>
+        <text class="task-subtitle">当前待复习任务</text>
+      </view>
+      <view class="task-badge">{{reviewCount}}</view>
+    </view>
+  </view>
+</view>

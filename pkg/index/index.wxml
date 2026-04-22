@@ -1,0 +1,86 @@
+<view class="container">
+  <view class="blob-container">
+    <view class="blob blob-purple"></view>
+    <view class="blob blob-blue"></view>
+  </view>
+
+  <view class="nav-header">
+    <view class="session-counter">
+      <text class="count-val">{{sessionCount}}</text>
+      <text class="count-unit">WORDS</text>
+    </view>
+    <picker bindchange="onCategoryChange" value="{{categoryIndex}}" range="{{categories}}">
+      <view class="category-selector">
+        <text class="nav-title">{{currentCategory}}</text>
+        <view class="arrow-down"></view>
+      </view>
+    </picker>
+    <view class="mode-tag {{isReviewMode ? 'review-active' : ''}}">
+      {{isReviewMode ? '复习模式' : '学习模式'}}
+    </view>
+  </view>
+
+  <view class="card-wrapper {{animationClass}}" wx:if="{{!missionComplete}}">
+    <view class="card {{feedbackType === 'mastered' ? 'card-success' : ''}} {{feedbackType === 'review' ? 'card-review' : ''}}">
+      <view class="word-content" wx:if="{{loading}}">
+        <text class="category-tag">Galaxy Vocab</text>
+        <view class="word-text">Loading...</view>
+        <view class="state-tip">正在预加载单词</view>
+      </view>
+
+      <view class="word-content" wx:elif="{{currentWord}}">
+        <text class="category-tag">{{currentWord.category || 'Vocabulary'}}</text>
+        <view class="word-text">{{currentWord.word}}</view>
+        <view class="definition-text {{showDefinition ? 'show' : ''}}">
+          {{currentWord.definition || '暂无释义'}}
+        </view>
+        <view class="feedback-banner {{feedbackType}}" wx:if="{{hasAnswered}}">
+          <text>{{feedbackText}}</text>
+        </view>
+      </view>
+
+      <view class="word-content" wx:else>
+        <text class="category-tag">Galaxy Vocab</text>
+        <view class="word-text empty">{{emptyMessage || 'Loading...'}}</view>
+        <view class="state-tip">准备下一段任务中</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="button-group" wx:if="{{currentWord && !loading && !missionComplete}}">
+    <button class="btn-uncertain" bindtap="onUncertain" disabled="{{loading}}">
+      <text>{{hasAnswered ? '继续' : '不认识'}}</text>
+    </button>
+    <button class="btn-mastered" bindtap="onMastered" disabled="{{loading}}">
+      <text>{{hasAnswered ? '继续' : '认识'}}</text>
+    </button>
+  </view>
+
+  <view class="review-capsule {{isReviewMode ? 'active' : ''}}" bindtap="toggleReviewMode" wx:if="{{!missionComplete}}">
+    <view class="capsule-icon">R</view>
+    <view class="capsule-text">复习</view>
+  </view>
+
+  <view class="mission-panel" wx:if="{{missionComplete}}">
+    <view class="mission-card">
+      <text class="mission-title">{{missionTitle}}</text>
+      <text class="mission-subtitle">{{missionSubtitle}}</text>
+      <view class="mission-stats">
+        <view class="mission-stat">
+          <text class="mission-value">{{sessionCount}}</text>
+          <text class="mission-label">已处理</text>
+        </view>
+        <view class="mission-stat">
+          <text class="mission-value success">{{masteredCount}}</text>
+          <text class="mission-label">认识</text>
+        </view>
+        <view class="mission-stat">
+          <text class="mission-value review">{{reviewCount}}</text>
+          <text class="mission-label">待复习</text>
+        </view>
+      </view>
+      <button class="btn-home" bindtap="returnHome">返回首页</button>
+    </view>
+  </view>
+</view>
+
